@@ -4,6 +4,7 @@ namespace AppTv.src
 
   class Program
   {
+    static SerieRepositorio repositorio = new SerieRepositorio();
     static void Main(string[] args)
     {
 
@@ -43,6 +44,36 @@ namespace AppTv.src
 
       Console.WriteLine("Obrigado por utilizar nossos serviços. Aperte [Enter] para encerrar");
       Console.ReadLine();
+    }
+
+    private static void InserirSerie()
+    {
+      System.Console.WriteLine("Inserir nova serie");
+
+      foreach (int i in Enum.GetValues(typeof(Genero)))
+      {
+        System.Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
+      }
+
+      System.Console.WriteLine("Digite o genero entre as opções acima");
+      int entradaGenero = int.Parse(Console.ReadLine());
+
+      System.Console.WriteLine("Digite o Titulo da Serie");
+      string entradaTitulo = Console.ReadLine();
+
+      System.Console.WriteLine("Digite o ano da serie");
+      int entradaAno = int.Parse(Console.ReadLine());
+
+      System.Console.WriteLine("Digite a descricao da Serie");
+      string entradaDescricao = Console.ReadLine();
+
+      Serie novaSerie = new Serie(id: repositorio.ProximoId(),
+                                  genero: (Genero)entradaGenero,
+                                  titulo: entradaTitulo,
+                                  ano: entradaAno,
+                                  descricao: entradaDescricao);
+
+      repositorio.Insere(novaSerie);
     }
     private static string ObterOpcaoUsuario()
     {
