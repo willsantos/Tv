@@ -27,7 +27,7 @@
             // AtualizarSerie();
             break;
           case "4":
-            // ExcluirSerie();
+            ExcluirSerie();
             break;
           case "5":
             // VisualizarSerie();
@@ -45,6 +45,16 @@
 
       Console.WriteLine("Obrigado por utilizar nossos serviços. Aperte [Enter] para encerrar");
       Console.ReadLine();
+    }
+
+    private static void ExcluirSerie()
+    {
+      System.Console.WriteLine("Digite o id da Serie");
+      int entradaSerie = int.Parse(Console.ReadLine());
+
+      repositorio.Exclui(entradaSerie);
+
+
     }
 
     private static void InserirSerie()
