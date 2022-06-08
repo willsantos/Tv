@@ -30,7 +30,7 @@
             ExcluirSerie();
             break;
           case "5":
-            // VisualizarSerie();
+            VisualizarSerie();
             break;
           case "C":
             Console.Clear();
@@ -45,6 +45,16 @@
 
       Console.WriteLine("Obrigado por utilizar nossos serviços. Aperte [Enter] para encerrar");
       Console.ReadLine();
+    }
+
+    private static void VisualizarSerie()
+    {
+      Console.Write("Digite o id da série: ");
+      int indiceSerie = int.Parse(Console.ReadLine());
+
+      var serie = repositorio.RetornaPorId(indiceSerie);
+
+      System.Console.WriteLine(serie);
     }
 
     private static void AtualizarSerie()
