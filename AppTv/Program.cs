@@ -1,4 +1,4 @@
-namespace AppTv.src
+﻿namespace AppTv.src
 {
 
 
@@ -8,6 +8,7 @@ namespace AppTv.src
     static void Main(string[] args)
     {
 
+      InicializadorFake();
       string opcaoUsuario = ObterOpcaoUsuario();
 
 
@@ -112,6 +113,20 @@ namespace AppTv.src
       Console.WriteLine();
       return opcaoUsuario;
     }
+
+    private static void InicializadorFake()
+    {
+      Console.WriteLine();
+      Console.Write("Iniciando AppTV");
+      var i = 0;
+      while (i < 3)
+      {
+        Thread.Sleep(500);
+        System.Console.Write(".");
+        i++;
+      }
+      System.Console.WriteLine("");
+      System.Console.WriteLine("");
     }
   }
 
