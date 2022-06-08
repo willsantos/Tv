@@ -50,6 +50,11 @@ namespace AppTv.src
       this.Excluido = true;
     }
 
+    public bool retornaExcluido()
+    {
+      return this.Excluido;
+    }
+
 
   }
 

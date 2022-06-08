@@ -140,7 +140,13 @@
 
       foreach (var serie in lista)
       {
-        System.Console.WriteLine("#ID {0}: - {1}", serie.retornaId(), serie.retornaTitulo());
+        var excluido = serie.retornaExcluido();
+        
+        if (!excluido)
+        {
+          System.Console.WriteLine("#ID {0}: - {1}", serie.retornaId(), serie.retornaTitulo());
+
+        }
       }
     }
 
