@@ -75,6 +75,24 @@ namespace AppTv.src
 
       repositorio.Insere(novaSerie);
     }
+
+    private static void ListarSeries()
+    {
+      System.Console.WriteLine("Lista de series");
+      var lista = repositorio.Lista();
+
+      if (lista.Count == 0)
+      {
+        System.Console.WriteLine("Nenhuma Serie cadastrada");
+        return;
+      }
+
+      foreach (var serie in lista)
+      {
+        System.Console.WriteLine("#ID {0}: - {1}", serie.retornaId(), serie.retornaTitulo());
+      }
+    }
+
     private static string ObterOpcaoUsuario()
     {
       Console.WriteLine();
