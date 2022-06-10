@@ -8,7 +8,7 @@
     static void Main(string[] args)
     {
 
-      InicializadorFake();
+      InicializadorFake(3);
 
       obterOpcaoMainMenu(mainMenu());
 
@@ -222,17 +222,19 @@
       return opcaoUsuario;
     }
 
-    private static void InicializadorFake()
+    private static void InicializadorFake(int seconds)
     {
       Console.WriteLine();
       Console.Write("Iniciando AppTV");
-      var i = 0;
-      while (i < 3)
+
+
+      for (int i = 0; i < seconds; i++)
       {
-        Thread.Sleep(500);
+        Thread.Sleep(1000);
         System.Console.Write(".");
-        i++;
       }
+
+
       System.Console.WriteLine("");
       System.Console.WriteLine("");
     }
