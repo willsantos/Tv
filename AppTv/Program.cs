@@ -10,8 +10,7 @@
 
       InicializadorFake();
 
-      string opcaoMenu = mainMenu();
-      obterOpcaoMainMenu(opcaoMenu);
+      obterOpcaoMainMenu(mainMenu());
 
       Console.WriteLine("Obrigado por utilizar nossos serviços. Aperte [Enter] para encerrar");
       Console.ReadLine();
@@ -19,7 +18,7 @@
 
     private static string obterOpcaoMainMenu(string opcaoMenu)
     {
-      string opcaoUsuario = null;
+
       while (opcaoMenu.ToUpper() != "X")
       {
         switch (opcaoMenu)
@@ -28,8 +27,7 @@
             //filmesMenu();
             break;
           case "2":
-            opcaoUsuario = seriesMenu();
-            obterOpcaoMenuSeries(opcaoUsuario);
+            obterOpcaoMenuSeries(seriesMenu());
             break;
           case "C":
             Console.Clear();
