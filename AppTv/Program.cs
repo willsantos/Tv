@@ -9,11 +9,46 @@
     {
 
       InicializadorFake();
-      string opcaoUsuario = ObterOpcaoUsuario();
+
+      string opcaoMenu = mainMenu();
+      obterOpcaoMainMenu(opcaoMenu);
+
+      Console.WriteLine("Obrigado por utilizar nossos serviços. Aperte [Enter] para encerrar");
+      Console.ReadLine();
+    }
+
+    private static string obterOpcaoMainMenu(string opcaoMenu)
+    {
+      string opcaoUsuario = null;
+      while (opcaoMenu.ToUpper() != "X")
+      {
+        switch (opcaoMenu)
+        {
+          case "1":
+            //filmesMenu();
+            break;
+          case "2":
+            opcaoUsuario = seriesMenu();
+            obterOpcaoMenuSeries(opcaoUsuario);
+            break;
+          case "C":
+            Console.Clear();
+            break;
+
+          default:
+            throw new ArgumentOutOfRangeException();
+
+        }
+
+        return opcaoMenu;
+      }
+      return opcaoMenu;
+    }
 
 
+    private static string obterOpcaoMenuSeries(string opcaoUsuario)
+    {
 
-      while (opcaoUsuario.ToUpper() != "X")
       {
         switch (opcaoUsuario)
         {
@@ -35,16 +70,19 @@
           case "C":
             Console.Clear();
             break;
+          case "X":
+            return opcaoUsuario = obterOpcaoMainMenu(mainMenu());
 
           default:
             throw new ArgumentOutOfRangeException();
         }
 
-        opcaoUsuario = ObterOpcaoUsuario();
+        opcaoUsuario = obterOpcaoMenuSeries(seriesMenu());
+
+
       }
 
-      Console.WriteLine("Obrigado por utilizar nossos serviços. Aperte [Enter] para encerrar");
-      Console.ReadLine();
+      return opcaoUsuario;
     }
 
     private static void VisualizarSerie()
@@ -141,7 +179,7 @@
       foreach (var serie in lista)
       {
         var excluido = serie.retornaExcluido();
-        
+
         if (!excluido)
         {
           System.Console.WriteLine("#ID {0}: - {1}", serie.retornaId(), serie.retornaTitulo());
@@ -150,7 +188,23 @@
       }
     }
 
-    private static string ObterOpcaoUsuario()
+    private static string mainMenu()
+    {
+      Console.WriteLine();
+
+      Console.WriteLine("Informe a opção desejada:");
+
+      Console.WriteLine("1- Acessar coleção de Filmes");
+      Console.WriteLine("2- Acessar coleção de Series");
+      Console.WriteLine("C- Limpar Tela");
+      Console.WriteLine("X- Sair");
+      Console.WriteLine();
+
+      string opcaoUsuario = Console.ReadLine().ToUpper();
+      Console.WriteLine();
+      return opcaoUsuario;
+    }
+    private static string seriesMenu()
     {
       Console.WriteLine();
 
