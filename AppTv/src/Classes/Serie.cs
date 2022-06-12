@@ -12,7 +12,7 @@ namespace AppTv.src
     private string Descricao { get; set; }
     private int Ano { get; set; }
 
-    private bool Excluido { get; set; }
+    
 
     public Serie(int id, Genero genero, string descricao, string titulo, int ano)
     {
@@ -40,20 +40,9 @@ namespace AppTv.src
       return this.Titulo;
     }
 
-    public int retornaId()
-    {
-      return this.Id;
-    }
+    
 
-    public void Excluir()
-    {
-      this.Excluido = true;
-    }
-
-    public bool retornaExcluido()
-    {
-      return this.Excluido;
-    }
+   
 
 
   }
