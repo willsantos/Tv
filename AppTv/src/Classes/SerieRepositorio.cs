@@ -1,3 +1,4 @@
+using AppTv.src.Classes;
 using AppTv.src.Interfaces;
 
 namespace AppTv.src
