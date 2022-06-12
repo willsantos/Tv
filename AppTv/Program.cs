@@ -141,12 +141,8 @@ namespace AppTv.src
       Console.Write("Digite o id da série: ");
       int indiceSerie = int.Parse(Console.ReadLine());
 
-      foreach (int i in Enum.GetValues(typeof(Genero)))
-      {
-        Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
-      }
-      Console.Write("Digite o gênero entre as opções acima: ");
-      int entradaGenero = int.Parse(Console.ReadLine());
+      
+      int entradaGenero = obterGenero();
 
       Console.Write("Digite o Título da Série: ");
       string entradaTitulo = Console.ReadLine();
@@ -180,13 +176,7 @@ namespace AppTv.src
     {
       System.Console.WriteLine("Inserir nova serie");
 
-      foreach (int i in Enum.GetValues(typeof(Genero)))
-      {
-        System.Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
-      }
-
-      System.Console.WriteLine("Digite o genero entre as opções acima");
-      int entradaGenero = int.Parse(Console.ReadLine());
+      int entradaGenero = obterGenero();
 
       System.Console.WriteLine("Digite o Titulo da Serie");
       string entradaTitulo = Console.ReadLine();
@@ -205,6 +195,8 @@ namespace AppTv.src
 
       repositorio.Insere(novaSerie);
     }
+
+
 
     private static void ListarSeries()
     {
@@ -290,7 +282,17 @@ namespace AppTv.src
       return opcaoUsuario;
     }
 
+    private static int obterGenero()
+    {
+      foreach (int i in Enum.GetValues(typeof(Genero)))
+      {
+        System.Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
+      }
 
+      System.Console.WriteLine("Digite o genero entre as opções acima");
+      int entradaGenero = int.Parse(Console.ReadLine());
+      return entradaGenero;
+    }
 
 
     private static void InicializadorFake(int seconds)
