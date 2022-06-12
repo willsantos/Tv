@@ -26,7 +26,7 @@ namespace AppTv.src
         switch (opcaoMenu)
         {
           case "1":
-            //filmesMenu();
+            obterOpcaoMenuFilmes(filmesMenu());
             break;
           case "2":
             obterOpcaoMenuSeries(seriesMenu());
@@ -45,6 +45,44 @@ namespace AppTv.src
       return opcaoMenu;
     }
 
+    private static string obterOpcaoMenuFilmes(string opcaoUsuario)
+    {
+
+      {
+        switch (opcaoUsuario)
+        {
+          case "1":
+            // ListarFilmes();
+            break;
+          case "2":
+            // InserirFilme();
+            break;
+          case "3":
+            // AtualizarFilme();
+            break;
+          case "4":
+            // ExcluirFilme();
+            break;
+          case "5":
+            VisualizarFilme();
+            break;
+          case "C":
+            Console.Clear();
+            break;
+          case "X":
+            return opcaoUsuario = obterOpcaoMainMenu(mainMenu());
+
+          default:
+            throw new ArgumentOutOfRangeException();
+        }
+
+        opcaoUsuario = obterOpcaoMenuFilmes(filmesMenu());
+
+
+      }
+
+      return opcaoUsuario;
+    }
 
     private static string obterOpcaoMenuSeries(string opcaoUsuario)
     {
@@ -84,6 +122,9 @@ namespace AppTv.src
 
       return opcaoUsuario;
     }
+
+
+    // Acoes de series
 
     private static void VisualizarSerie()
     {
@@ -188,6 +229,9 @@ namespace AppTv.src
       }
     }
 
+    // FIM Acoes de series
+
+
     private static string mainMenu()
     {
       Console.WriteLine();
@@ -223,6 +267,31 @@ namespace AppTv.src
       Console.WriteLine();
       return opcaoUsuario;
     }
+
+
+
+    private static string filmesMenu()
+    {
+      Console.WriteLine();
+
+      Console.WriteLine("Informe a opção desejada:");
+
+      Console.WriteLine("1- Listar Filmes");
+      Console.WriteLine("2- Inserir novo filme");
+      Console.WriteLine("3- Atualizar filme");
+      Console.WriteLine("4- Excluir filme");
+      Console.WriteLine("5- Visualizar filme");
+      Console.WriteLine("C- Limpar Tela");
+      Console.WriteLine("X- Sair");
+      Console.WriteLine();
+
+      string opcaoUsuario = Console.ReadLine().ToUpper();
+      Console.WriteLine();
+      return opcaoUsuario;
+    }
+
+
+
 
     private static void InicializadorFake(int seconds)
     {
