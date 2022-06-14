@@ -160,7 +160,16 @@ namespace AppTv.src.Helper
       System.Console.WriteLine("Digite o id do Filme");
       int entradaFilme = int.Parse(Console.ReadLine());
 
-      filmesRepositorio.Exclui(entradaFilme);
+
+      bool opcaoExcluir = Utils.Excluir();
+
+      if (opcaoExcluir != false)
+      {
+        filmesRepositorio.Exclui(entradaFilme);
+        System.Console.WriteLine("Filme Excluido com sucesso");
+      }
+
+
     }
 
 

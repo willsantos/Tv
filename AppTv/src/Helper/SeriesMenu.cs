@@ -153,26 +153,12 @@ namespace AppTv.src.Helper
       System.Console.WriteLine("Digite o id da Serie");
       int entradaSerie = int.Parse(Console.ReadLine());
 
-      System.Console.WriteLine("Deseja realmente excluir? (S/N)");
-      string entradaExcluir = Console.ReadLine();
-
-      bool opcaoExcluir = false;
-
-      switch (entradaExcluir.ToUpper())
-      {
-        case "S" or "Y":
-          opcaoExcluir = true;
-          break;
-        case "N":
-          opcaoExcluir = false;
-          break;
-        default:
-          throw new ArgumentOutOfRangeException();
-      }
+      bool opcaoExcluir = Utils.Excluir();
 
       if (opcaoExcluir != false)
       {
         seriesRepositorio.Exclui(entradaSerie);
+        System.Console.WriteLine("Serie Excluida com sucesso");
       }
 
 
