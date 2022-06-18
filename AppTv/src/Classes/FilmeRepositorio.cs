@@ -49,7 +49,12 @@ namespace AppTv.src.Classes
       }
     }
 
+    public void escreveArquivo()
+    {
+      File.AppendAllText(caminhoArquivo, Environment.NewLine + "3;3;Eu, Eu Mesmo e Irene;Peter Farrelly;Um policial amigável com desordem de identidade dissociativa deve proteger uma mulher que foge de um ex-namorado corrupto e seus associados.;2000");
+    }
     private List<Filme> listaFilme = new List<Filme>();
+
     public void Atualiza(int id, Filme entidade)
     {
       listaFilme[id] = entidade;
@@ -62,11 +67,13 @@ namespace AppTv.src.Classes
 
     public void Insere(Filme entidade)
     {
+      escreveArquivo();
       listaFilme.Add(entidade);
     }
 
     public List<Filme> Lista()
     {
+
       return listaFilme;
     }
 
