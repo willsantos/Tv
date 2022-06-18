@@ -11,6 +11,31 @@ namespace AppTv.src.Classes
 
       var fluxoDeArquivo = new FileStream(caminhoArquivo, FileMode.Create);
     }
+    public void leArquivo()
+    {
+      using (var fluxoDeArquivo = new FileStream(caminhoArquivo, FileMode.Open))
+      using (var leitor = new StreamReader(fluxoDeArquivo))
+      {
+        while (!leitor.EndOfStream)
+        {
+          var linha = leitor.ReadLine();
+          var registro = linha.Split(";");
+
+          Filme filme = new Filme(
+            id: int.Parse(registro[0].ToString()),
+            genero: (Genero)int.Parse(registro[1].ToString()),
+            titulo: registro[2].ToString(),
+            diretor: registro[3].ToString(),
+            descricao: registro[4].ToString(),
+            ano: int.Parse(registro[5].ToString())
+          );
+
+          listaFilme.Add(filme);
+
+        }
+      }
+    }
+
     private List<Filme> listaFilme = new List<Filme>();
     public void Atualiza(int id, Filme entidade)
     {
