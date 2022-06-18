@@ -1,3 +1,4 @@
+
 using AppTv.src.Interfaces;
 
 namespace AppTv.src.Classes
@@ -6,11 +7,23 @@ namespace AppTv.src.Classes
   {
     string caminhoArquivo = "filmes.txt";
 
+    public FilmeRepositorio()
+    {
+      var path = Path.Combine(Environment.CurrentDirectory, caminhoArquivo);
+
+      if (!File.Exists(path))
+      {
+        criaArquivo();
+      }
+      leArquivo();
+    }
+
     public void criaArquivo()
     {
 
       var fluxoDeArquivo = new FileStream(caminhoArquivo, FileMode.Create);
     }
+
     public void leArquivo()
     {
       using (var fluxoDeArquivo = new FileStream(caminhoArquivo, FileMode.Open))
