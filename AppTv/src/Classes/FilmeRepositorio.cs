@@ -4,7 +4,13 @@ namespace AppTv.src.Classes
 {
   public class FilmeRepositorio : IRepositorio<Filme>
   {
+    string caminhoArquivo = "filmes.txt";
 
+    public void criaArquivo()
+    {
+
+      var fluxoDeArquivo = new FileStream(caminhoArquivo, FileMode.Create);
+    }
     private List<Filme> listaFilme = new List<Filme>();
     public void Atualiza(int id, Filme entidade)
     {
