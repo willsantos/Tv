@@ -40,7 +40,8 @@ namespace AppTv.src.Classes
             titulo: registro[2].ToString(),
             diretor: registro[3].ToString(),
             descricao: registro[4].ToString(),
-            ano: int.Parse(registro[5].ToString())
+            ano: int.Parse(registro[5].ToString()),
+            excluido: bool.Parse(registro[6].ToString())
           );
 
           listaFilme.Add(filme);
