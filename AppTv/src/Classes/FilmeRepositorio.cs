@@ -49,9 +49,10 @@ namespace AppTv.src.Classes
       }
     }
 
-    public void escreveArquivo()
+    public void escreveArquivo(Filme entidade)
     {
-      File.AppendAllText(caminhoArquivo, Environment.NewLine + "3;3;Eu, Eu Mesmo e Irene;Peter Farrelly;Um policial amigável com desordem de identidade dissociativa deve proteger uma mulher que foge de um ex-namorado corrupto e seus associados.;2000");
+      string Entidade = Environment.NewLine + $"{entidade.retornaId()};{(int)entidade.Genero};{entidade.retornaTitulo()};{entidade.Diretor};{entidade.Descricao};{entidade.Ano};{entidade.Excluido};";
+      File.AppendAllText(caminhoArquivo, Entidade);
     }
     private List<Filme> listaFilme = new List<Filme>();
 
