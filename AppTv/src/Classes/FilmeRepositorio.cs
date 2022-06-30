@@ -1,4 +1,3 @@
-
 using AppTv.src.Interfaces;
 
 namespace AppTv.src.Classes
@@ -93,17 +92,21 @@ namespace AppTv.src.Classes
 
     public void Atualiza(int id, Filme entidade)
     {
+      id = id - 1;
+      editaArquivo(entidade, id);
       listaFilme[id] = entidade;
     }
 
     public void Exclui(int id)
     {
+      id = id - 1;
+      excluiRegistroArquivo(id);
       listaFilme[id].Excluir();
     }
 
     public void Insere(Filme entidade)
     {
-      escreveArquivo();
+      escreveArquivo(entidade);
       listaFilme.Add(entidade);
     }
 
@@ -115,11 +118,13 @@ namespace AppTv.src.Classes
 
     public int ProximoId()
     {
-      return listaFilme.Count;
+
+      return listaFilme.Count + 1;
     }
 
     public Filme RetornaPorId(int id)
     {
+      id = id - 1;
       return listaFilme[id];
     }
   }
