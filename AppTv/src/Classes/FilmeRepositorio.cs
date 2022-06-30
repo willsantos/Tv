@@ -50,6 +50,30 @@ namespace AppTv.src.Classes
       }
     }
 
+    public void excluiRegistroArquivo(int id)
+    {
+      string[] fileLines = File.ReadAllLines(caminhoArquivo);
+      string filme = fileLines[id];
+
+      var registro = filme.Split(";");
+
+      Filme filmeAtualizado = new Filme(
+        id: int.Parse(registro[0].ToString()),
+        genero: (Genero)int.Parse(registro[1].ToString()),
+        titulo: registro[2].ToString(),
+        diretor: registro[3].ToString(),
+        descricao: registro[4].ToString(),
+        ano: int.Parse(registro[5].ToString()),
+        excluido: true
+      );
+
+      string Entidade = $"{filmeAtualizado.retornaId()};{(int)filmeAtualizado.Genero};{filmeAtualizado.retornaTitulo()};{filmeAtualizado.Diretor};{filmeAtualizado.Descricao};{filmeAtualizado.Ano};{filmeAtualizado.Excluido};";
+
+      fileLines[id] = Entidade;
+      File.WriteAllLines(caminhoArquivo, fileLines);
+
+    }
+
     public void escreveArquivo(Filme entidade)
     {
       string Entidade = Environment.NewLine + $"{entidade.retornaId()};{(int)entidade.Genero};{entidade.retornaTitulo()};{entidade.Diretor};{entidade.Descricao};{entidade.Ano};{entidade.Excluido};";
