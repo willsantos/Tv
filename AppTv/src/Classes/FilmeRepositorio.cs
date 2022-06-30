@@ -55,6 +55,16 @@ namespace AppTv.src.Classes
       string Entidade = Environment.NewLine + $"{entidade.retornaId()};{(int)entidade.Genero};{entidade.retornaTitulo()};{entidade.Diretor};{entidade.Descricao};{entidade.Ano};{entidade.Excluido};";
       File.AppendAllText(caminhoArquivo, Entidade);
     }
+
+    public void editaArquivo(Filme entidade, int id)
+    {
+      string Entidade = $"{entidade.retornaId()};{(int)entidade.Genero};{entidade.retornaTitulo()};{entidade.Diretor};{entidade.Descricao};{entidade.Ano};{entidade.Excluido};";
+      string[] fileLines = File.ReadAllLines(caminhoArquivo);
+      fileLines[id] = Entidade;
+      File.WriteAllLines(caminhoArquivo, fileLines);
+    }
+
+
     private List<Filme> listaFilme = new List<Filme>();
 
     public void Atualiza(int id, Filme entidade)
