@@ -1,21 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace AppTv.src.Classes
 {
   public class Filme : EntidadeBase
   {
 
 
-    private Genero Genero { get; set; }
-    private string Titulo { get; set; }
-    private string Diretor { get; set; }
-    private string Descricao { get; set; }
-    private int Ano { get; set; }
+    public Genero Genero { get; protected set; }
+    public string Titulo { get; protected set; }
+    public string Diretor { get; protected set; }
+    public string Descricao { get; protected set; }
+    public int Ano { get; protected set; }
 
-    public Filme(int id, Genero genero, string titulo, string diretor, string descricao, int ano)
+    public Filme(int id, Genero genero, string titulo, string diretor, string descricao, int ano, bool excluido = false)
     {
       this.Id = id;
       this.Genero = genero;
@@ -23,6 +18,7 @@ namespace AppTv.src.Classes
       this.Diretor = diretor;
       this.Descricao = descricao;
       this.Ano = ano;
+      this.Excluido = excluido;
     }
 
     public override string ToString()
@@ -42,6 +38,6 @@ namespace AppTv.src.Classes
       return this.Titulo;
     }
 
-    
+
   }
 }

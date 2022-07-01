@@ -68,7 +68,7 @@ namespace AppTv.src.Helper
     private static void ListarFilmes()
     {
       System.Console.WriteLine("Lista de filmes");
-      var lista = filmesRepositorio.Lista();
+      List<Filme> lista = filmesRepositorio.Lista();
 
       if (lista.Count == 0)
       {
@@ -150,7 +150,7 @@ namespace AppTv.src.Helper
       Console.Write("Digite o id do Filme: ");
       int indiceFilme = int.Parse(Console.ReadLine());
 
-      var Filme = filmesRepositorio.RetornaPorId(indiceFilme);
+      var Filme = filmesRepositorio.RetornaPorId(indiceFilme + 1);
 
       System.Console.WriteLine(Filme);
     }
