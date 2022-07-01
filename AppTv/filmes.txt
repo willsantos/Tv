@@ -1,2 +1,3 @@
-1;Drama;Um Sonho de Liberdade;Frank Darabont;Dois homens presos se reúnem ao longo de vários anos, encontrando consolo e eventual redenção através de atos de decência comum.;1994;
-2;Acao;O Poderoso Chefão;Francis Ford Coppola;O patriarca idoso de uma dinastia do crime organizado transfere o controle de seu império clandestino para seu filho relutante.;1972
+1;5;Um Sonho de Liberdade;Frank Darabont;Dois homens presos se reúnem ao longo de vários anos, encontrando consolo e eventual redenção através de atos de decência comum.;1994;false;
+2;1;O Poderoso Chefão;Francis Ford Coppola;O patriarca idoso de uma dinastia do crime organizado transfere o controle de seu império clandestino para seu filho relutante.;1972;false;
+3;3;Eu, Eu Mesmo e Irene;Peter Farrelly;Um policial amigável com desordem de identidade dissociativa deve proteger uma mulher que foge de um ex-namorado corrupto e seus associados.;2000;false;
