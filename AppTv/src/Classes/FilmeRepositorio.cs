@@ -31,6 +31,10 @@ namespace AppTv.src.Classes
         while (!leitor.EndOfStream)
         {
           var linha = leitor.ReadLine();
+          if (linha == null)
+          {
+            continue;
+          }
           var registro = linha.Split(";");
 
           Filme filme = new Filme(
@@ -85,6 +89,8 @@ namespace AppTv.src.Classes
       string[] fileLines = File.ReadAllLines(caminhoArquivo);
       fileLines[id] = Entidade;
       File.WriteAllLines(caminhoArquivo, fileLines);
+
+
     }
 
 
